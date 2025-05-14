@@ -1,5 +1,5 @@
 # views.py
-from rest_framework import viewsets 
+from rest_framework import viewsets  # type: ignore
 
 from .models import Cat, Owner
 from .serializers import CatSerializer, OwnerSerializer
