@@ -1,5 +1,5 @@
-from rest_framework import serializers
-from rest_framework.validators import UniqueTogetherValidator
+from rest_framework import serializers # type: ignore
+from rest_framework.validators import UniqueTogetherValidator # type: ignore
 
 import datetime as dt
 
