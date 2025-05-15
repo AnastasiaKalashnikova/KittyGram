@@ -1,14 +1,20 @@
-# views.py
-from rest_framework import viewsets  # type: ignore
+from rest_framework import viewsets
 
-from .models import Cat, Owner
-from .serializers import CatSerializer, OwnerSerializer
+from .models import Achievement, Cat, User
+
+from .serializers import AchievementSerializer, CatSerializer, UserSerializer
 
 
 class CatViewSet(viewsets.ModelViewSet):
     queryset = Cat.objects.all()
     serializer_class = CatSerializer
 
-class OwnerViewSet(viewsets.ModelViewSet):
-    queryset = Owner.objects.all()
-    serializer_class = OwnerSerializer 
+
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class AchievementViewSet(viewsets.ModelViewSet):
+    queryset = Achievement.objects.all()
+    serializer_class = AchievementSerializer

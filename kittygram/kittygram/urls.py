@@ -1,15 +1,19 @@
-# urls.py
-from rest_framework.routers import DefaultRouter # type: ignore
- 
-from django.urls import include, path # type: ignore
+from rest_framework import routers
 
-from cats.views import CatViewSet, OwnerViewSet
+from django.contrib import admin
+from django.urls import include, path
+
+from cats.views import AchievementViewSet, CatViewSet, UserViewSet
 
 
-router = DefaultRouter()
+router = routers.DefaultRouter()
 router.register('cats', CatViewSet)
-router.register('owners', OwnerViewSet)
+router.register('users', UserViewSet)
+router.register('achievements', AchievementViewSet)
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', include(router.urls)),
-] 
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
+]
